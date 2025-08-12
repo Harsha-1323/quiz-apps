@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-xl mb-4">Edit Question</h2>
+  <form method="POST">
+    <textarea name="text" required class="w-full p-2 border rounded mb-3">{{ question.text }}</textarea>
+    <input type="text" name="option_a" value="{{ question.option_a }}" required class="w-full p-2 border rounded mb-2" />
+    <input type="text" name="option_b" value="{{ question.option_b }}" required class="w-full p-2 border rounded mb-2" />
+    <input type="text" name="option_c" value="{{ question.option_c }}" class="w-full p-2 border rounded mb-2" />
+    <input type="text" name="option_d" value="{{ question.option_d }}" class="w-full p-2 border rounded mb-2" />
+    <select name="correct_option" required class="w-full p-2 border rounded mb-3">
+      <option value="A" {% if question.correct_option=='A' %}selected{% endif %}>A</option>
+      <option value="B" {% if question.correct_option=='B' %}selected{% endif %}>B</option>
+      <option value="C" {% if question.correct_option=='C' %}selected{% endif %}>C</option>
+      <option value="D" {% if question.correct_option=='D' %}selected{% endif %}>D</option>
+    </select>
+    <button class="bg-indigo-600 text-white px-4 py-2 rounded">Update Question</button>
+  </form>
+</div>
+{% endblock %}
+

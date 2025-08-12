@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
+  <h2 class="text-xl font-semibold mb-4">👋 Welcome!</h2>
+  <p class="mb-4">Quiz: <strong>{{ quiz.title }}</strong> — {{ quiz.time_per_question }}s per question</p>
+
+  <form method="POST">
+    <input type="text" name="username" placeholder="Enter your name" required class="w-full p-2 border rounded mb-4" />
+    <button class="w-full bg-indigo-600 text-white py-2 rounded">Start Quiz</button>
+  </form>
+</div>
+{% endblock %}
+

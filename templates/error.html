@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-6 rounded shadow text-center">
+  <h2 class="text-xl font-semibold mb-4">Error</h2>
+  <p>{{ message }}</p>
+  <div class="mt-4"><a href="{{ url_for('home') }}" class="text-blue-600">Back to Home</a></div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white p-6 rounded shadow text-center">
+  <h2 class="text-2xl font-semibold mb-4">Welcome to the Quiz Platform</h2>
+
+  {% if active %}
+    <p class="mb-4">Active Quiz: <strong>{{ active.title }}</strong></p>
+    <a href="{{ url_for('welcome') }}" class="bg-green-600 text-white px-4 py-2 rounded">Enter Quiz</a>
+    <a href="{{ url_for('winner_board') }}" class="ml-4 bg-blue-500 text-white px-4 py-2 rounded">Winner Board</a>
+  {% else %}
+    <p class="mb-4 text-red-600">No active quiz right now. Please check back later.</p>
+  {% endif %}
+
+  <div class="mt-6">
+    <a href="{{ url_for('admin_login') }}" class="text-sm text-gray-700 underline">Admin</a>
+  </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+  {% if create_quiz %}
+    <h2 class="text-xl mb-4">Create Quiz</h2>
+    <form method="POST">
+      <input type="text" name="title" placeholder="Quiz title (optional)" class="w-full p-2 border rounded mb-3" />
+      <input type="number" name="time_per_question" placeholder="Time per question (seconds)" required class="w-full p-2 border rounded mb-3" />
+      <button class="bg-green-600 text-white px-4 py-2 rounded">Create Quiz</button>
+    </form>
+  {% else %}
+    <h2 class="text-xl mb-4">Add Question to: {{ quiz.title }}</h2>
+    <form method="POST">
+      <textarea name="text" placeholder="Question text" required class="w-full p-2 border rounded mb-3"></textarea>
+      <input type="text" name="option_a" placeholder="Option A" required class="w-full p-2 border rounded mb-2" />
+      <input type="text" name="option_b" placeholder="Option B" required class="w-full p-2 border rounded mb-2" />
+      <input type="text" name="option_c" placeholder="Option C" class="w-full p-2 border rounded mb-2" />
+      <input type="text" name="option_d" placeholder="Option D" class="w-full p-2 border rounded mb-2" />
+      <select name="correct_option" required class="w-full p-2 border rounded mb-3">
+        <option value="">-- Correct Option --</option>
+        <option value="A">Option A</option>
+        <option value="B">Option B</option>
+        <option value="C">Option C</option>
+        <option value="D">Option D</option>
+      </select>
+      <button class="bg-indigo-600 text-white px-4 py-2 rounded">Add Question</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}
+

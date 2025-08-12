@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+  <h2 class="text-2xl font-semibold mb-4">{{ quiz.title }}</h2>
+  <div id="question-area"></div>
+
+  <div class="mt-4 flex justify-between items-center">
+    <div>Time left: <span id="timer" class="font-bold">{{ quiz.time_per_question or 20 }}</span>s</div>
+    <div>Question: <span id="qindex">0</span> / <span id="qtotal">{{ questions|length }}</span></div>
+  </div>
+
+  <div class="mt-4">
+    <button id="prevBtn" class="bg-gray-300 text-black px-4 py-2 rounded mr-2">Previous</button>
+    <button id="nextBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Next</button>
+    <button id="submitBtn" class="bg-green-600 text-white px-4 py-2 rounded hidden">Submit</button>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = {{ questions|tojson }};
+const TIME_PER_Q = {{ quiz.time_per_question or 20 }};
+</script>
+{% endblock %}
+
